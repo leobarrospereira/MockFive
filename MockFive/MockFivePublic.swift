@@ -41,7 +41,7 @@ public protocol Mock {
     /// Call this method to register a stub for a function identified by `identifier`.
     /// - parameter identifier: The identifier passed to `stub()` in the function to be stubbed.
     /// - parameter returns: A block with the same return type as the function being mocked. If a closuer of the incorrect type is registered, a runtime error will result.
-    func registerStub<T>(_ identifier: String, returns: ([Any?]) -> T)
+    func registerStub<T>(_ identifier: String, returns: @escaping ([Any?]) -> T)
     
     /// Call this method to remove a registered stub, and return a function to its default behavior.
     /// - parameter identifier: The identifier passed to `stub()` in the function to be reset.

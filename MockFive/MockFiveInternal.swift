@@ -1,6 +1,6 @@
 import Foundation
 
-public extension Mock {
+extension Mock {
     fileprivate(set) public var invocations: [String] { get { return mockRecords[mockFiveLock] ?? [] } set(new) { mockRecords[mockFiveLock] = new } }
     
     public func resetMock() {
