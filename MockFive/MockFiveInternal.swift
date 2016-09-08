@@ -1,6 +1,6 @@
 import Foundation
 
-extension Mock {
+public extension Mock {
     fileprivate(set) public var invocations: [String] { get { return mockRecords[mockFiveLock] ?? [] } set(new) { mockRecords[mockFiveLock] = new } }
     
     public func resetMock() {
@@ -67,11 +67,11 @@ func + <T, U> (left: [T:U], right: [T:U]) -> [T:U] {
 }
 
 // Private
-private var globalObjectIDIndex: Int32 = 0
-private var mockRecords: [String:[String]] = [:]
-private var mockBlocks: [String:[String:Any]] = [:]
+fileprivate var globalObjectIDIndex: Int32 = 0
+fileprivate var mockRecords: [String:[String]] = [:]
+fileprivate var mockBlocks: [String:[String:Any]] = [:]
 
-private func stringify(_ function: String, arguments: [Any?], returnType: String?) -> String {
+fileprivate func stringify(_ function: String, arguments: [Any?], returnType: String?) -> String {
     var invocation = ""
     let arguments = arguments.map { $0 ?? "nil" } as [Any]
     if .none == function.rangeOfCharacter(from: CharacterSet(charactersIn: "()")) {
